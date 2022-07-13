@@ -5,18 +5,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import StudentForm from "./StudentForm";
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 // EditStudent Component
 const EditStudent = (props) => {
   const url_params = useParams();
-  console.log(url_params);
+  const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
     rollno: "",
   });
-    
+
   //onSubmit handler
   const onSubmit = (studentObject) => {
     axios
@@ -25,13 +26,14 @@ const EditStudent = (props) => {
       url_params.id,
       studentObject
     )
+
     .then((res) => {
       if (res.status === 200) {
       alert("Student successfully updated");
-      props.history.push("/student-list");
+      navigate("/student-list")
       } else Promise.reject();
     })
-    .catch((err) => alert("Something went wrong"));
+    .catch((err) => alert("Something went wrong "));
   };
 
   // Load data from server and reinitialize student form

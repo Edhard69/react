@@ -41,9 +41,7 @@ router.route("/update-student/:id")
       }
     });
   })
-  
-  // Update Student Data
-  router.put((req, res, next) => {
+  .put((req, res, next) => {
     studentSchema.findByIdAndUpdate(
       req.params.id,
       {
