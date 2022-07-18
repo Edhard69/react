@@ -17,6 +17,7 @@ const onSubmit = studentObject => {
   .then(res => {
     if (res.status === 200)
     alert('Student successfully created')
+    
     else
     Promise.reject()
   })

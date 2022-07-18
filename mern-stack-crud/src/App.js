@@ -21,7 +21,9 @@ import EditStudent from
     "./Components/edit-student.component";
 import StudentList from 
     "./Components/student-list.component";
-  
+import InitialPage from 
+    "./Components/initial-page-student.component";
+
 // App Component
 const App = () => {
   return (
@@ -31,9 +33,9 @@ const App = () => {
           <Navbar bg="dark" variant="dark">
             <Container>
               <Navbar.Brand>
-                <Link to={"/create-student"} 
+                <Link to={"/"} 
                   className="nav-link">
-                  React MERN Stack App
+                  Students APP
                 </Link>
               </Navbar.Brand>
   
@@ -63,7 +65,7 @@ const App = () => {
 
                 <Routes>
                   <Route exact path="/" 
-                    element={<CreateStudent/>} />
+                    element={<InitialPage/>} />
                   <Route path="/create-student" 
                     element={<CreateStudent/>} />
                   <Route path="/edit-student/:id" 
